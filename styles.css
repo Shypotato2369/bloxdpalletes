@@ -9,6 +9,7 @@ body {
     font-family: 'Arial', sans-serif;
     color: #333;
     background-color: #f9f9f9;
+    padding-bottom: 50px; /* Added space at the bottom */
 }
 
 /* Hero Section */
@@ -28,68 +29,82 @@ header {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    animation: zoomInOut 1.5s ease-in-out; /* Animation for the hero text */
 }
 
-.hero-container h1 {
+.hero-container h1,
+.hero-container p {
     font-size: 3.5rem;
     margin-bottom: 20px;
+    animation: bubbleEffect 1s ease-in-out; /* Bubble effect */
+    padding: 10px 30px;
+    border-radius: 20px;
+    display: inline-block;
+}
+
+/* Differentiate the bubble color for the text */
+.hero-container h1 {
+    background-color: rgba(255, 255, 255, 0.4); /* Lightened bubble color */
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
 }
 
 .hero-container p {
-    font-size: 1.5rem;
-    margin-bottom: 30px;
+    background-color: rgba(255, 255, 255, 0.2); /* Slightly lighter background */
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
 }
 
+/* Change the color of the link (CTA) to cyan with bubble effect */
 .cta {
-    background: #2575fc;
+    background-color: #00bcd4; /* Cyan background */
     color: white;
     padding: 15px 30px;
     font-size: 1.2rem;
-    border-radius: 5px;
+    border-radius: 20px;
     text-decoration: none;
-    transition: background 0.3s ease;
+    transition: background 0.3s ease, transform 0.3s ease;
+    display: inline-block;
+    animation: bubbleEffect 1s ease-in-out; /* Apply bubble effect to the link */
 }
 
 .cta:hover {
-    background: #1c5eb8;
+    background-color: #008c9e; /* Darker cyan on hover */
+    transform: scale(1.1); /* Slight scale-up on hover */
 }
 
-/* Bubble Effect for Text */
-@keyframes bubbleAnimation {
+/* Zoom in and out animation */
+@keyframes zoomInOut {
     0% {
-        transform: scale(0);
-        opacity: 0;
+        transform: scale(1);
     }
     50% {
-        transform: scale(1.1);
-        opacity: 1;
+        transform: scale(1.2);
     }
     100% {
         transform: scale(1);
     }
 }
 
-/* Bubble Text with Colors */
-.bubble-text {
-    position: relative;
-    display: inline-block;
-    padding: 20px;
-    border-radius: 50px;
-    background: linear-gradient(45deg, #ff7e5f, #feb47b);  /* Gradient bubble */
-    color: white;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-    animation: bubbleAnimation 2s ease-out;
-}
-
-.bubble-text:hover {
-    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+/* Bubble effect */
+@keyframes bubbleEffect {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+    }
+    50% {
+        transform: scale(1.1);
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+    }
 }
 
 /* Block Combinations Section */
 #block-combinations {
     padding: 80px 20px;
-    background: #fff;
-    text-align: center;
+    background-color: #fff;
+    margin-top: 40px;
 }
 
 #block-combinations h2 {
@@ -103,20 +118,19 @@ header {
     margin-bottom: 40px;
 }
 
+/* Block Gallery (Grid Layout) */
 .block-gallery {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    gap: 20px; /* Space between blocks */
 }
 
 .block {
     background-color: #f1f1f1;
     padding: 20px;
     border-radius: 8px;
-    width: 30%;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
 }
 
@@ -135,9 +149,98 @@ header {
     margin: 20px 0;
 }
 
-.block p {
-    font-size: 1.1rem;
-    color: #555;
+/* Upload Block Section */
+#upload-block {
+    padding: 80px 20px;
+    background-color: #fff;
+    text-align: center;
+}
+
+#upload-block h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+}
+
+#upload-block p {
+    font-size: 1.2rem;
+    color: #777;
+    margin-bottom: 40px;
+}
+
+#upload-block .cta {
+    background: #2575fc;
+    color: white;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.3s ease;
+    display: inline-block;
+}
+
+#upload-block .cta:hover {
+    background: #1c5eb8;
+}
+
+/* Feedback Section */
+#feedback {
+    padding: 80px 20px;
+    background-color: #fff;
+    text-align: center;
+}
+
+.feedback-form {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.feedback-form label {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.feedback-form input[type="range"] {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.feedback-form input[type="range"]:focus {
+    outline: none;
+}
+
+.feedback-form span {
+    font-size: 1.2rem;
+    display: block;
+    margin-top: 10px;
+}
+
+.feedback-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.feedback-form button {
+    background-color: #2575fc;
+    color: white;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+}
+
+.feedback-form button:hover {
+    background-color: #1c5eb8;
+}
+
+.feedback-form .thank-you {
+    font-size: 1.5rem;
+    color: #4caf50;
 }
 
 /* Footer Section */
@@ -154,7 +257,30 @@ footer p {
 
 /* Responsive Styles */
 @media (max-width: 768px) {
+    .block-gallery {
+        grid-template-columns: 1fr; /* 1 column for smaller screens */
+    }
+
     .block {
         width: 100%;
     }
+}
+
+/* Bloxd Description Section */
+#description-bloxd {
+    padding: 80px 20px;
+    background-color: #fff;
+    text-align: center; /* Centers the text */
+}
+
+#description-bloxd h2 {
+    font-size: 3rem; /* Increased font size */
+    margin-bottom: 20px;
+}
+
+#description-bloxd p {
+    font-size: 1.6rem; /* Increased font size for better readability */
+    color: #555;
+    max-width: 900px; /* Keeps the text from stretching too wide */
+    margin: 0 auto; /* Centers the paragraph */
 }

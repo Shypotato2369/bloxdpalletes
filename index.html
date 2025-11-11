@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import "./index.css";
-
 const allBlocks = [
-  // NATURAL BLOCKS
+    // NATURAL BLOCKS
   { category: "Natural", name: "Bedrock", image: "https://via.placeholder.com/40?text=Bedrock" },
   { category: "Natural", name: "Cobweb", image: "https://via.placeholder.com/40?text=Cobweb" },
   { category: "Natural", name: "Grass Block", image: "https://via.placeholder.com/40?text=Grass" },
@@ -124,6 +123,13 @@ const allBlocks = [
   { category: "Mob", name: "Stag Mob Spawner", image: "https://via.placeholder.com/40?text=Stag+Mob" },
   { category: "Mob", name: "Gold Watermelon Stag Mob Spawner", image: "https://via.placeholder.com/40?text=Gold+Watermelon+Stag" },
   { category: "Mob", name: "Gorilla Mob Spawner", image: "https://via.placeholder.com/40?text=Gorilla+Mob" }
+
+];
+
+// Category tabs
+const categories = [
+  "All",
+  ...Array.from(new Set(allBlocks.map(b => b.category)))
 ];
 
 function BlockPicker({ blocks, onPick, pickedBlocks, filter }) {
@@ -139,8 +145,10 @@ function BlockPicker({ blocks, onPick, pickedBlocks, filter }) {
             onClick={() => onPick(block)}
           >
             <img src={block.image} alt={block.name} />
-            <span>{block.name}</span>
-            <span className="cat-label">{block.category}</span>
+            <div>
+              <span className="block-name">{block.name}</span>
+              <span className="cat-label">{block.category}</span>
+            </div>
           </button>
         ))}
     </div>
@@ -196,12 +204,6 @@ export default function App() {
   const [palettes, setPalettes] = useState([]);
   const [likeData, setLikeData] = useState({});
   const [blockCategory, setBlockCategory] = useState("All");
-
-  // Categories for filtering
-  const categories = [
-    "All",
-    ...Array.from(new Set(allBlocks.map(b => b.category)))
-  ];
 
   const handlePick = (block) => {
     if (pickedBlocks.length < 6 && !pickedBlocks.includes(block)) {
@@ -315,4 +317,3 @@ export default function App() {
     </div>
   );
 }
-

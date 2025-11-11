@@ -1,3 +1,47 @@
+body {
+  background: linear-gradient(120deg, #fbbc42, #ffecb3);
+  color: #261a00;
+  margin: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.container {
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+header {
+  background: #ffa500;
+  padding: 18px;
+  border-radius: 14px;
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main-title {
+  margin: 0;
+  font-size: 2.5rem;
+  letter-spacing: 2px;
+}
+
+nav span {
+  margin: 0 10px;
+  font-weight: bold;
+  color: #ef2424;
+  cursor: pointer;
+}
+
+.creator-section {
+  background: #fff9e6;
+  padding: 22px;
+  border-radius: 16px;
+  margin-bottom: 28px;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.05);
+}
+
 .cat-switch {
   margin-bottom: 12px;
   display: flex;
@@ -22,5 +66,163 @@
   display: block;
   margin-top: 4px;
   color: #ef890c;
+}
+
+.block-picker {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+  gap: 9px;
+}
+
+.block-btn {
+  background: #ef2424;
+  color: #fff;
+  border: none;
+  padding: 7px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 1rem;
+  box-shadow: 0 2px 8px #fad74244;
+  transition: background .13s;
+}
+.block-btn:disabled {
+  filter: grayscale(0.8);
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.block-btn img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  border-radius: 7px;
+}
+.block-name {
+  font-weight: bold;
+}
+
+.picked-list {
+  display: flex;
+  gap: 14px;
+  margin-bottom: 12px;
+}
+
+.picked-block {
+  background: #ffd47a;
+  border-radius: 8px;
+  padding: 6px 11px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 1px 6px #f7c051bb;
+}
+.picked-block img {
+  width: 32px;
+  height: 32px;
+}
+.remove-btn {
+  background: #ff4a4a;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 22px;
+  height: 22px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+input[type="text"], textarea {
+  width: 98%;
+  padding: 8px;
+  margin: 5px 0 11px 0;
+  border-radius: 6px;
+  border: 1px solid #fdba74;
+  font-size: 1.05rem;
+}
+
+.save-btn {
+  background: #ef2424;
+  color: #fff;
+  border: none;
+  padding: 10px 28px;
+  font-size: 1.15rem;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 6px;
+  letter-spacing: 1px;
+  transition: background .14s;
+}
+.save-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+  margin-top: 18px;
+}
+
+.gallery-card {
+  background: #fff9e2;
+  border-radius: 10px;
+  padding: 14px;
+  box-shadow: 0 1px 10px #f5b01633;
+}
+
+.palette-preview {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 9px;
+}
+.gallery-block {
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
+  object-fit: contain;
+  border: 1px solid #ffd47a;
+}
+
+.title {
+  font-size: 1.11rem;
+  font-weight: bold;
+  color: #ef890c;
+  margin-bottom: 5px;
+}
+
+.desc {
+  font-size: 0.99rem;
+  color: #6d4a11;
+}
+
+.gallery-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 8px;
+}
+.like-btn, .dislike-btn {
+  background: #ef2424;
+  color: #fff;
+  border: none;
+  border-radius: 9px;
+  padding: 7px 16px;
+  font-size: 1.11rem;
+  cursor: pointer;
+  transition: background .13s;
+  font-weight: bold;
+  box-shadow: 0 1px 6px #f5414144;
+}
+.like-btn.active, .dislike-btn.active {
+  background: #ffd47a;
+  color: #ef2424;
+}
+.like-btn:disabled, .dislike-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
 }
 
